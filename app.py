@@ -9,7 +9,7 @@ st.set_page_config(
     layout="wide"
 )
 
-API_URL = "http://127.0.0.1:8000/predict"
+API_URL = "API_URL = "https://network-intrusion-detection-0hoe.onrender.com/predict""
 
 # Header
 st.title("🛡️ Network Intrusion Detection System")
@@ -26,7 +26,7 @@ st.info(
 # API status
 try:
     health = requests.get(
-        "http://127.0.0.1:8000/health",
+        ""https://network-intrusion-detection-0hoe.onrender.com/health"",
         timeout=3
     )
     if health.status_code == 200:
