@@ -26,7 +26,7 @@ st.info(
 # API status
 try:
     health = requests.get(
-        "https://network-intrusion-detection-0hoe.onrender.com/health",,
+        "https://network-intrusion-detection-0hoe.onrender.com/health",
         timeout=3
     )
     if health.status_code == 200:
