@@ -17,78 +17,153 @@ API_URL = "https://network-intrusion-detection-0hoe.onrender.com/predict"
 HEALTH_URL = "https://network-intrusion-detection-0hoe.onrender.com/health"
 
 
+
 # --------------------------------------------------
-# CUSTOM CSS
+# CUSTOM CSS - PROFESSIONAL LIGHT THEME
 # --------------------------------------------------
 
 st.markdown("""
 <style>
+
+/* Main application background */
 .stApp {
-    background-color: #0b1120;
-    color: #e5e7eb;
+    background-color: #F4F7FC;
+    color: #1E293B;
 }
 
+/* Main content area */
+.main .block-container {
+    padding-top: 2rem;
+    padding-bottom: 3rem;
+    max-width: 1250px;
+}
+
+/* Sidebar */
 [data-testid="stSidebar"] {
-    background-color: #111c30;
+    background-color: #FFFFFF;
+    border-right: 1px solid #E2E8F0;
 }
 
+/* Main headings */
 .main-title {
-    font-size: 36px;
+    font-size: 34px;
     font-weight: 800;
-    color: #ffffff;
+    color: #172554;
+    letter-spacing: -0.8px;
 }
 
 .subtitle {
-    color: #94a3b8;
+    color: #64748B;
     font-size: 16px;
+    margin-bottom: 20px;
 }
 
 .section-title {
-    color: #60a5fa;
+    color: #1D4ED8;
     font-size: 22px;
     font-weight: 700;
 }
 
-.status-card {
-    background: #17243a;
-    padding: 18px;
+/* Metric cards */
+[data-testid="stMetric"] {
+    background-color: #FFFFFF;
+    border: 1px solid #E2E8F0;
     border-radius: 12px;
-    border: 1px solid #263957;
+    padding: 18px;
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
 }
 
+[data-testid="stMetricLabel"] {
+    color: #64748B;
+}
+
+[data-testid="stMetricValue"] {
+    color: #1D4ED8;
+    font-weight: 700;
+}
+
+/* Input fields */
+.stTextInput input,
+.stNumberInput input,
+.stSelectbox div[data-baseweb="select"] {
+    background-color: #FFFFFF;
+    border-radius: 8px;
+}
+
+/* Expanders */
+.streamlit-expanderHeader {
+    background-color: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 9px;
+    color: #1E293B;
+    font-weight: 600;
+}
+
+[data-testid="stExpander"] {
+    background-color: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 10px;
+}
+
+/* Form container */
+[data-testid="stForm"] {
+    background-color: #FFFFFF;
+    padding: 22px;
+    border: 1px solid #E2E8F0;
+    border-radius: 14px;
+}
+
+/* Buttons */
+div.stButton > button,
+div[data-testid="stFormSubmitButton"] > button {
+    background-color: #1D4ED8;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 9px;
+    padding: 12px 18px;
+    font-weight: 700;
+    transition: 0.2s ease;
+}
+
+div.stButton > button:hover,
+div[data-testid="stFormSubmitButton"] > button:hover {
+    background-color: #1E40AF;
+    color: #FFFFFF;
+    border: none;
+}
+
+/* Result cards */
 .result-normal {
-    background: #12352c;
-    border: 1px solid #22c55e;
+    background-color: #ECFDF5;
+    border: 1px solid #86EFAC;
     padding: 25px;
     border-radius: 12px;
     text-align: center;
+    color: #166534;
 }
 
 .result-attack {
-    background: #451d27;
-    border: 1px solid #ef4444;
+    background-color: #FEF2F2;
+    border: 1px solid #FCA5A5;
     padding: 25px;
     border-radius: 12px;
     text-align: center;
+    color: #991B1B;
 }
 
-div.stButton > button {
-    width: 100%;
-    background-color: #2563eb;
-    color: white;
-    border-radius: 9px;
-    border: none;
-    padding: 12px;
-    font-weight: bold;
+/* Dividers */
+hr {
+    border-color: #E2E8F0;
 }
 
-div.stButton > button:hover {
-    background-color: #1d4ed8;
-    color: white;
+/* Footer */
+footer {
+    visibility: hidden;
 }
 
 </style>
 """, unsafe_allow_html=True)
+
 
 
 # --------------------------------------------------
