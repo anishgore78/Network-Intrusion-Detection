@@ -1,86 +1,38 @@
-# Network Intrusion Detection System Using Machine Learning
+# 🛡️ Network Intrusion Detection System
 
-## 📌 Project Overview
+An AI-powered Network Intrusion Detection System that uses Machine Learning to classify network traffic as **Normal** or **Attack**. Built using Python, Scikit-learn, FastAPI, and Streamlit.
 
-Network Intrusion Detection System (NIDS) is a Machine Learning-based project designed to identify malicious network traffic and distinguish it from normal network activities.
+## 🚀 Project Overview
 
-This project uses the **NSL-KDD dataset** to build a binary classification model that detects whether a network connection is normal or represents a potential cyberattack.
+Network security is an important aspect of modern computing. This project uses a K-Nearest Neighbors (KNN) classification model to identify potentially malicious network traffic based on network connection features.
 
-Four machine learning algorithms are implemented and compared to identify the best-performing model.
+The application provides an interactive dashboard where users can enter network traffic details and receive predictions through a deployed REST API.
 
-## 🎯 Project Objectives
+## ✨ Features
 
-- Detect suspicious network traffic using Machine Learning.
-- Classify network connections into Normal and Attack categories.
-- Compare different classification algorithms.
-- Evaluate model performance using multiple evaluation metrics.
-- Select the best-performing model for intrusion detection.
+- Machine Learning-based network traffic classification.
+- Binary classification: Normal and Attack.
+- 41 network traffic input features.
+- Data preprocessing using StandardScaler and OneHotEncoder.
+- Interactive Streamlit dashboard with a professional light theme.
+- FastAPI REST API for model predictions.
+- Cloud deployment using Render and Streamlit Community Cloud.
+- API health-check endpoint.
 
-## 📊 Dataset
+## 🧠 Machine Learning Model
 
-**Dataset:** NSL-KDD
+The project uses the **K-Nearest Neighbors (KNN)** algorithm.
 
-The NSL-KDD dataset is a benchmark dataset used for network intrusion detection research.
+Dataset: NSL-KDD
 
-| Dataset Information | Details |
-|---|---|
-| Training records | 125,973 |
-| Testing records | 22,544 |
-| Input features | 41 |
-| Total columns | 42 |
-| Problem type | Binary Classification |
-| Target classes | Normal / Attack |
+The model pipeline includes:
+- StandardScaler for numerical features.
+- OneHotEncoder for categorical features.
+- K-Nearest Neighbors classifier for prediction.
 
-**Dataset Source:** [NSL-KDD Dataset](https://www.unb.ca/cic/datasets/nsl.html)
+### Model Performance
 
-## 🛠️ Technologies Used
-
-- Python
-- Google Colab
-- Pandas
-- NumPy
-- Scikit-learn
-- Matplotlib
-- Seaborn
-- Joblib
-
-## ⚙️ Project Workflow
-
-1. Dataset Loading
-2. Exploratory Data Analysis
-3. Data Preprocessing
-4. Categorical Feature Encoding
-5. Numerical Feature Scaling
-6. Machine Learning Model Training
-7. Model Performance Evaluation
-8. Model Comparison
-9. Final Model Selection
-10. Prediction and Model Saving
-
-## 🤖 Machine Learning Algorithms
-
-The following algorithms were implemented:
-
-1. Logistic Regression
-2. K-Nearest Neighbors (KNN)
-3. Support Vector Machine (SVM)
-4. Random Forest
-
-## 📈 Model Performance Comparison
-
-The models were evaluated using:
-
-- Accuracy
-- Precision
-- Recall
-- F1-Score
-- ROC-AUC
-
-### KNN Performance
-
-K-Nearest Neighbors was selected as the final model based on its highest F1-score among the evaluated algorithms.
-
-| Evaluation Metric | Score |
+| Evaluation Metric | KNN |
 |---|---:|
 | Accuracy | 77.36% |
 | Precision | 96.75% |
@@ -88,70 +40,149 @@ K-Nearest Neighbors was selected as the final model based on its highest F1-scor
 | F1-Score | 75.81% |
 | ROC-AUC | 81.42% |
 
-### Random Forest Performance
+The KNN model was selected based on its F1-score among the evaluated models.
 
-| Evaluation Metric | Score |
-|---|---:|
-| Accuracy | 76.85% |
-| Precision | 96.78% |
-| Recall | 61.37% |
-| F1-Score | 75.11% |
-| ROC-AUC | 95.95% |
+**Note:** The model is an experimental prototype. It can miss malicious traffic and should not be used as a standalone production security solution.
 
-### Final Model Selection
+## 🏗️ System Architecture
 
-KNN was selected because it achieved the highest F1-score of **75.81%**.
+```text
+        User
+         |
+         v
+  Streamlit Dashboard
+         |
+         v
+    FastAPI REST API
+         |
+         v
+  Data Preprocessing
+         |
+         v
+   KNN Classification
+         |
+         v
+   Prediction Result
+     /          \
+  Normal       Attack
+```
 
-Although Random Forest achieved a higher ROC-AUC, KNN performed slightly better in F1-score, accuracy, and recall at the evaluated prediction threshold.
+## 🛠️ Technologies Used
 
-## 📂 Repository Structure
+| Technology | Purpose |
+|---|---|
+| Python | Programming language |
+| Pandas | Data manipulation |
+| NumPy | Numerical operations |
+| Scikit-learn | Machine Learning |
+| Joblib | Model serialization |
+| FastAPI | Backend API |
+| Uvicorn | API server |
+| Streamlit | Interactive frontend |
+| Git & GitHub | Version control |
+| Render | Backend deployment |
+| Streamlit Cloud | Frontend deployment |
+
+## 📂 Project Structure
 
 ```text
 Network-Intrusion-Detection/
 │
-├── NetworkIntrusionDetection.ipynb
-├── model_comparison.csv
-├── nsl_kdd_random_forest.pkl
+├── app.py
+├── main.py
+├── requirements.txt
+├── README.md
+├── .gitignore
+│
 ├── KNN_Intrusion_Detection_Compressed.joblib
-└── README.md
+│
+├── model_comparison.csv
+│
+└── NetworkIntrusionDetection.ipynb
 ```
 
-## 🚀 How to Run the Project
+## ⚙️ Run Locally
 
-1. Clone this repository:
+### 1. Clone the repository
 
 ```bash
 git clone https://github.com/anishgore78/Network-Intrusion-Detection.git
 ```
 
-2. Install the required libraries:
+### 2. Navigate to the project folder
 
 ```bash
-pip install pandas numpy scikit-learn matplotlib seaborn joblib
+cd Network-Intrusion-Detection
 ```
 
-3. Open the notebook using Google Colab or Jupyter Notebook.
+### 3. Create a virtual environment
 
-4. Upload the NSL-KDD training and testing dataset files.
+```bash
+python3 -m venv venv
+```
 
-5. Execute the notebook cells to perform preprocessing, train models, and evaluate performance.
+### 4. Activate the environment
 
-## 🔮 Future Enhancements
+```bash
+source venv/bin/activate
+```
 
-- Improve attack detection recall.
-- Perform hyperparameter tuning for better performance.
-- Experiment with advanced machine learning algorithms.
-- Develop a web-based intrusion detection dashboard.
-- Extend the system to identify individual attack categories.
+### 5. Install dependencies
 
-## 📝 Conclusion
+```bash
+pip install -r requirements.txt
+pip install streamlit requests
+```
 
-This project demonstrates the use of Machine Learning in cybersecurity for detecting malicious network traffic.
+### 6. Run the Streamlit application
 
-Four classification algorithms were implemented and compared using the NSL-KDD dataset. KNN achieved the highest F1-score of 75.81% and was selected as the final model.
+```bash
+streamlit run app.py
+```
 
-The project provided practical experience in data preprocessing, model development, evaluation, and applying machine learning techniques to cybersecurity problems.
+The application will open at:
+
+```text
+http://localhost:8501
+```
+
+The Streamlit frontend connects to the deployed FastAPI backend.
+
+## 🌐 Live Deployment
+
+- **Frontend:** Streamlit Community Cloud
+- **Backend:** Render
+- **API Documentation:** https://network-intrusion-detection-0hoe.onrender.com/docs
+- **API Health Check:** https://network-intrusion-detection-0hoe.onrender.com/health
+
+## 🔗 API Endpoints
+
+| Method | Endpoint | Description |
+|---|---|---|
+| GET | `/` | API welcome message |
+| GET | `/health` | Backend health status |
+| POST | `/predict` | Predict network traffic class |
+
+## 🔮 Future Improvements
+
+- Real-time network traffic monitoring.
+- Integration with live network packet capture.
+- Improved attack detection and recall.
+- Additional machine learning model comparisons.
+- Interactive prediction history and analytics.
+- Advanced threat visualization.
+
+## 👨‍💻 Author
+
+**Anish Gore**
+
+Artificial Intelligence and Data Science Engineering Student
+
+[GitHub](https://github.com/anishgore78)
 
 ---
 
-**Developed as a Machine Learning and Cybersecurity Project.**
+⭐ If you find this project interesting, feel free to explore the repository!
+
+**Disclaimer:** This project is developed for educational and experimental purposes. Predictions are not a substitute for professional network security monitoring.
+
