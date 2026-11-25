@@ -148,7 +148,7 @@ http://localhost:8501
 
 The Streamlit frontend connects to the deployed FastAPI backend.
 
-## 🌐 Live Deployment
+
 
 
 ## 🌐 Live Deployment
