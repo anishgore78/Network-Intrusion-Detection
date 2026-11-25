@@ -150,10 +150,14 @@ The Streamlit frontend connects to the deployed FastAPI backend.
 
 ## 🌐 Live Deployment
 
-- **Frontend:** Streamlit Community Cloud
-- **Backend:** Render
-- **API Documentation:** https://network-intrusion-detection-0hoe.onrender.com/docs
-- **API Health Check:** https://network-intrusion-detection-0hoe.onrender.com/health
+
+## 🌐 Live Deployment
+
+- **Live Application (Frontend):** (https://anishgore78-network-intrusion-detection-app-zugjep.streamlit.app/)
+- **Backend API (Render):** https://network-intrusion-detection-0hoe.onrender.com
+- **API Documentation:** [Swagger UI](https://network-intrusion-detection-0hoe.onrender.com/docs)
+- **API Health Check:** [Health Status](https://network-intrusion-detection-0hoe.onrender.com/health)
+
 
 ## 🔗 API Endpoints
 
